@@ -1,0 +1,191 @@
+@startuml
+
+/'
+<| implica EXTENSIÓN
+* implica COMPOSICIÓN
+o implica AGREGACIÓN
+https://plantuml.com/es/class-diagram
+'/
+
+Task "1" --o "N" Interval
+Element <|-- Project
+Element <|-- Task
+Iterator <..IterableCollection
+IterableCollection <|.. Element
+Iterator <|.. TotalTime
+Iterator <|.. SearchByTag
+Element "1" --o "N" Project
+ClockTimer -.> Interval
+ClockTimer --|> TimerTask
+ClockTimer -|> Observable
+Observer<|- Interval
+
+
+abstract Element{
+#protected String m_name;
+#protected LocalDateTime m_init_DateTime_e;
+#protected LocalDateTime m_end_DateTime_e;
+#protected Duration m_duration_e;
+#protected Boolean m_active;
+#protected Project m_project;
+#protected String m_class;
+
+abstract Duration getDuration();
+abstract LocalDateTime getM_init_DateTime_e();
+abstract LocalDateTime getM_end_DateTime_e();
+abstract Boolean getM_active();
+abstract Project getM_project();
+abstract String getM_name();
+abstract String getM_class();
+abstract JSONObject createJSON();
+
+abstract Boolean containsTag(String var1)
+public abstract Vector<Element> getM_element_array()
+public abstract Vector<Interval> getM_interval_array()
+}
+
+class Project {
+#protected Vector<Element> m_element_array;
+-private JSONObject m_json_project;
+-private JSONArray m_json_elements;
+
++public Project(String name)
++public Project(String name, Project project_padre)
++public Project (JSONObject json_loader)
++public Project (Project project_padre, JSONObject json_loader)
++public Project createProject(String name)
++public Task createTask(String name)
++public void update(LocalDateTime arg, Duration duration)
+
++public Duration getDuration()
++public String getM_name()
++public LocalDateTime getM_init_DateTime_e()
++public LocalDateTime getM_end_DateTime_e()
++public Boolean getM_active()
++public Project getM_project()
++public String getM_class()
+
++public JSONObject createJSON()
+
++public SearchByTag createTagIterator(String tag)
++public TotalTime createTotalTimeIterator(LocalDateTime init_DateTime, LocalDateTime end_DateTime)
++public Boolean containsTag(String tag)
+}
+
+class Task {
+-private Vector<Interval> m_interv_array;
+-private int x;
+-private JSONObject m_json_task;
+-private JSONArray m_json_intervals;
+
++public Task(String name)
++public Task(String name, Project project_padre)
++public Task (Project project_padre, JSONObject json_loader)
++public Task (JSONObject json_loader)
++public void createInterval()
++public void stopInterval()
++public void update(LocalDateTime arg, Duration duration)
+
++public Duration getDuration()
++public String getM_name()
++public LocalDateTime getM_init_DateTime_e()
++public LocalDateTime getM_end_DateTime_e()
++public Boolean getM_active()
++public Project getM_project()
++public String getM_class()
++public Vector<Interval> get_Array()
+
++public JSONObject createJSON()
+
++public Vector<Element> getM_element_array()
++public Vector<Interval> getM_interval_array()
++public SearchByTag createTagIterator(String tag)
++public TotalTime createTotalTimeIterator(LocalDateTime init_DateTime, LocalDateTime end_DateTime)
++public Boolean containsTag(String tag)
+}
+
+class Interval { /'OBSERVER'/
+-private LocalDateTime m_init_DateTime_i;
+-private LocalDateTime m_end_DateTime_i;
+-private Duration m_duration_i;
+-private String m_id;
+-private String m_class;
+-private Boolean m_active;
+-private Task m_tarea;
+-private JSONObject m_json_interval;
+
+Interval(Task tarea_padre)
+Interval(Task tarea_padre, JSONObject json_loader)
++public void startListening()
++public void stopListening()
++public void update(Observable o, Object arg)
++public Duration getDuration()
++public void setID(String id)
++public JSONObject createJSON()
+}
+
+object TimerTask{
+java.util
+}
+
+
+class ClockTimer{ /'OBSERVABLE'/
+LocalDateTime date = null;
+-private static ClockTimer clockTimer;
+
++public static void main(String args[])
++public static ClockTimer getClockTimer()
++public void getTime()
++public LocalDateTime now()
+
+}
+
+
+object Observable{
+java.util
+}
+
+object Observer{
+java.util
+}
+
+interface Iterator{
+
++Boolean hasMore();
+
+}
+
+interface IterableCollection {
++SearchByTag createTagIterator(String tag);
++TotalTime createTotalTimeIterator(LocalDateTime init_DateTime, LocalDateTime end_DateTime);
+}
+
+class TotalTime{
+-private final Element m_element;
+-private final LocalDateTime m_init_DateTime;
+-private final LocalDateTime m_end_DateTime;
+
++public TotalTime(Element element, LocalDateTime init_DateTime, LocalDateTime end_DateTime)
++public Element getM_element()
++public LocalDateTime getM_init_DateTime()
++public LocalDateTime getM_end_DateTime()
++public Vector<Interval> getM_interval_array()
++public Vector<Element> getM_element_array()
++public Element getNext()
++public Boolean hasMore()
+
+}
+
+class SearchByTag{
+-private final Element m_element;
+-private final String m_tag;
+
++public SearchByTag(Element element, String tag)
++public String getTag()
++public Element getM_element()
++public Vector<Element> getM_element_array()
++public Element getNext()
++public Boolean hasMore()
+
+}
+@enduml

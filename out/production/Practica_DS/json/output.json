@@ -1,0 +1,119 @@
+{
+   "duration": "PT24.0259106S",
+   "activities": [
+      {
+         "duration": "PT16.0334981S",
+         "activities": [
+            {
+               "duration": "PT16.0334981S",
+               "activities": [
+                  {
+                     "duration": "PT10.0214318S",
+                     "intervals": [{
+                        "duration": "PT10.0214318S",
+                        "init_time": "2020-11-18T22:34:13.985267800",
+                        "end_time": "2020-11-18T22:34:24.006699600",
+                        "active": false,
+                        "intervalID": "id0",
+                        "class": "Interval"
+                     }],
+                     "name": "first list",
+                     "init_time": "2020-11-18T22:34:13.985267800",
+                     "end_time": "2020-11-18T22:34:24.011705500",
+                     "class": "Task"
+                  },
+                  {
+                     "duration": "PT6.0120663S",
+                     "intervals": [{
+                        "duration": "PT6.0120663S",
+                        "init_time": "2020-11-18T22:34:19.999328600",
+                        "end_time": "2020-11-18T22:34:26.027352",
+                        "active": false,
+                        "intervalID": "id0",
+                        "class": "Interval"
+                     }],
+                     "name": "second list",
+                     "init_time": "2020-11-18T22:34:19.999328600",
+                     "end_time": "2020-11-18T22:34:26.028351",
+                     "class": "Task"
+                  }
+               ],
+               "init_time": "2020-11-18T22:34:07.935789900",
+               "end_time": "2020-11-18T22:34:26.028351",
+               "name": "problems",
+               "class": "Project"
+            },
+            {
+               "duration": "PT0S",
+               "activities": [
+                  {
+                     "duration": "PT0S",
+                     "name": "read handout",
+                     "class": "Task"
+                  },
+                  {
+                     "duration": "PT0S",
+                     "name": "first milestone",
+                     "class": "Task"
+                  }
+               ],
+               "init_time": "2020-11-18T22:34:07.935789900",
+               "end_time": "2020-11-18T22:34:07.935789900",
+               "name": "project time tracker",
+               "class": "Project"
+            }
+         ],
+         "init_time": "2020-11-18T22:34:07.935789900",
+         "end_time": "2020-11-18T22:34:26.028351",
+         "name": "software design",
+         "class": "Project"
+      },
+      {
+         "duration": "PT0S",
+         "end_time": "2020-11-18T22:34:07.935789900",
+         "name": "software testing",
+         "class": "Project"
+      },
+      {
+         "duration": "PT0S",
+         "end_time": "2020-11-18T22:34:07.935789900",
+         "name": "databases",
+         "class": "Project"
+      },
+      {
+         "duration": "PT0S",
+         "end_time": "2020-11-18T22:34:07.935789900",
+         "name": "task transportation",
+         "class": "Project"
+      },
+      {
+         "duration": "PT7.9924125S",
+         "intervals": [
+            {
+               "duration": "PT3.9844275S",
+               "init_time": "2020-11-18T22:34:07.941773900",
+               "end_time": "2020-11-18T22:34:11.959114200",
+               "active": false,
+               "intervalID": "id0",
+               "class": "Interval"
+            },
+            {
+               "duration": "PT4.007985S",
+               "init_time": "2020-11-18T22:34:28.031540600",
+               "end_time": "2020-11-18T22:34:32.039525600",
+               "active": false,
+               "intervalID": "id1",
+               "class": "Interval"
+            }
+         ],
+         "name": "transportation",
+         "init_time": "2020-11-18T22:34:07.938782100",
+         "end_time": "2020-11-18T22:34:32.041521500",
+         "class": "Task"
+      }
+   ],
+   "init_time": "2020-11-18T22:34:07.934792500",
+   "end_time": "2020-11-18T22:34:32.041521500",
+   "name": "root",
+   "class": "Project"
+}
